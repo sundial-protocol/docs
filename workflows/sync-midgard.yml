@@ -1,0 +1,46 @@
+name: Sync Full Midgard Repo
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # Every day at 5:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your repo
+        uses: actions/checkout@v4
+
+      - name: Install rsync and diffutils
+        run: sudo apt-get update && sudo apt-get install -y rsync diffutils
+
+      - name: Clone Midgard
+        run: git clone https://github.com/Anastasia-Labs/midgard.git midgard-latest
+
+      - name: Backup current state
+        run: |
+          mkdir -p backup-current
+          rsync -a --exclude='.git' ./ backup-current/
+
+      - name: Sync Midgard into current repo
+        run: |
+          rsync -av --delete --exclude='.git' midgard-latest/ ./ > sync-log.txt
+
+      - name: Show changed files
+        run: |
+          echo "==== Changed Files from Midgard ===="
+          diff -qr backup-current/ ./ || echo "No changes detected."
+
+      - name: Commit and push if changes found
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git add .
+            git commit -m "Daily full sync from Midgard upstream"
+            git push
+          else
+            echo "No changes to commit."
+          fi
