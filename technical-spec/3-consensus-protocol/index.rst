@@ -1,3 +1,6 @@
+3-Consensus Protocol
+===========
+
 .. toctree::
    :maxdepth: 1
 

@@ -1,3 +1,6 @@
+2-User Event Protocol
+===========
+
 .. toctree::
    :maxdepth: 1
 

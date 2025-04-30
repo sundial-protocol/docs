@@ -1,3 +1,6 @@
+5-Ledger Rules
+===========
+
 .. toctree::
    :maxdepth: 1
 
