@@ -32,6 +32,12 @@ jobs:
         run: |
           echo "==== Changed Files from Midgard ===="
           diff -qr backup-current/ ./ || echo "No changes detected."
+      
+      - name: Save list of changed files
+        run: |
+          echo "Sync on $(date -u)" >> midgard-sync-log.txt
+          diff -qr backup-current/ ./ >> midgard-sync-log.txt || echo "No changes" >> midgard-sync-log.txt
+          echo "----" >> midgard-sync-log.txt
 
       - name: Commit and push if changes found
         run: |
