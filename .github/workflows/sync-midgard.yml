@@ -1,4 +1,4 @@
-name: Sync Full Midgard Repo
+name: Sync Midgard
 
 on:
   schedule:
@@ -17,26 +17,35 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y rsync diffutils
 
       - name: Clone Midgard
-        run: git clone https://github.com/Anastasia-Labs/midgard.git midgard-latest
+        run: |
+          git clone https://github.com/Anastasia-Labs/midgard.git midgard-latest
 
       - name: Backup current state
         run: |
-          mkdir -p backup-current
+          mkdir backup-current
           rsync -a --exclude='.git' ./ backup-current/
 
       - name: Sync Midgard into current repo
         run: |
-          rsync -av --delete --exclude='.git' midgard-latest/ ./ > sync-log.txt || [ $? -eq 24 ]
+          rsync -av --delete --exclude='.git' midgard-latest/ ./ || [ $? -eq 24 ]
 
       - name: Show changed files
         run: |
           echo "==== Changed Files from Midgard ===="
-          diff -qr backup-current/ ./ || echo "No changes detected."
-      
+          if [ -d backup-current ]; then
+            diff -qr backup-current/ ./ || echo "No changes detected."
+          else
+            echo "⚠️ backup-current not found."
+          fi
+
       - name: Save list of changed files
         run: |
           echo "Sync on $(date -u)" >> midgard-sync-log.txt
-          diff -qr backup-current/ ./ >> midgard-sync-log.txt || echo "No changes" >> midgard-sync-log.txt
+          if [ -d backup-current ]; then
+            diff -qr backup-current/ ./ >> midgard-sync-log.txt || echo "No changes" >> midgard-sync-log.txt
+          else
+            echo "No backup to compare." >> midgard-sync-log.txt
+          fi
           echo "----" >> midgard-sync-log.txt
 
       - name: Commit and push if changes found
@@ -48,6 +57,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
-            git commit -m "🔄 Daily full sync from Midgard upstream"
+            git commit -m "🔄 Daily sync from Midgard upstream"
             git push
           fi
