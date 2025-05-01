@@ -54,9 +54,13 @@
     font-weight: bold;
 }
 
-/* Remove version dropdown */
-.rst-versions {
+/* Forcefully hide the version switcher, even after JS injection */
+div.rst-versions,
+.rst-versions.rst-badge {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
 }
 
 /* === LIGHT MODE (default) === */
@@ -80,17 +84,15 @@ body.dark-mode .highlight {
     background: #1e1e1e !important;
 }
 
-/* Toggle switch styling */
-.theme-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
+/* Inline toggle button (next to page source) */
+.theme-toggle-inline {
     background: #000;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
-    z-index: 1000;
-    border-radius: 5px;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-left: 1em;
     cursor: pointer;
-    font-size: 0.9rem;
 }
+
