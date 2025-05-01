@@ -1,17 +1,13 @@
-.. _h:state-queue:
-
 State queue
 ===========
 
-The state queue is an L1 data structure that stores Midgard operators’
+The state queue is an L1 data structure that stores Sundial operators’
 committed block headers until they are confirmed. Active operators from
 the operator directory (see
 `[h:operator-directory] <#h:operator-directory>`__) take turns
 committing block headers to the state queue according to the rotating
 schedule enforced by the scheduler (see
 `[h:scheduler] <#h:scheduler>`__).
-
-.. _h:state-queue-utxo-representation:
 
 Utxo representation
 -------------------
@@ -22,16 +18,15 @@ The is implemented as a key-unordered linked list of block headers (see
 .. math::
 
    \begin{aligned}
-       \T{StateQueueDatum} &\coloneq \T{NodeDatum}(\T{Header}) \\ \\
-       \T{valid\_key}(\T{scd} : \T{StateQueueDatum}) &\coloneq
-           \Bigl( \T{scd.key} \equiv \T{Some}(\T{hash}(\T{scd.data})) \Bigr)\end{aligned}
+   \texttt{StateQueueDatum} &:= \texttt{NodeDatum}(\texttt{Header}) \\\\
+   \texttt{valid_key}(\texttt{scd} : \texttt{StateQueueDatum}) &:= 
+       \Bigl( \texttt{scd.key} \equiv \texttt{Some}(\texttt{hash}(\texttt{scd.data})) \Bigr)
+   \end{aligned}
 
-Committing a block header to the means appending a node containing the
-block header to the end of the queue. After staying there for the (a
-protocol parameter), it is merged to the confirmed state (held at the
-root node) in the first-in-first-out (FIFO) order.
-
-.. _h:state-queue-minting-policy:
+Committing a block header to the state queue means appending a node containing the
+block header to the end of the queue. After remaining in the queue for the duration
+of the confirmation delay (a Sundial protocol parameter), it is merged into the confirmed state
+(held at the root node) in first-in-first-out (FIFO) order.
 
 Minting policy
 --------------
@@ -41,16 +36,16 @@ It is statically parametrized on the , , , , and minting policies.
 Redeemers:
 
 Init.
-   Initialize the via the Midgard hub oracle. Conditions:
+   Initialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle token.
+   #. The transaction must mint the Sundial hub oracle token.
 
    #. The transaction must Init the .
 
 Deinit.
-   Deinitialize the via the Midgard hub oracle. Conditions:
+   Deinitialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle token.
+   #. The transaction must burn the Sundial hub oracle token.
 
    #. The transaction must Deinit the .
 
@@ -108,7 +103,7 @@ Merge To Confirmed State.
    #. and must both be root nodes of .
 
    #. must be mature — the lower bound of the transaction validity
-      interval meets or exceeds the sum of the field of and the Midgard
+      interval meets or exceeds the sum of the field of and the Sundial
       protocol parameter.
 
    #. must match:

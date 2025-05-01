@@ -1,49 +1,46 @@
-.. _h:midgard-hub-oracle:
-
-Midgard hub oracle
+Sundial hub oracle
 ==================
 
 This oracle keeps track of minting policy IDs and spending validator
 addresses for the lists used in the operator directory, state queue, and
-fraud proof set of the Midgard protocol. It consists of a single utxo
+fraud proof set of the Sundial protocol. It consists of a single utxo
 holding the hub oracle NFT and a datum of the following type:
 
 .. math::
 
-   \T{HubOracleDatum} \coloneq \left\{
+   \texttt{HubOracleDatum} := \left\{
        \begin{array}{ll}
-           \T{registered\_operators} : & \T{PolicyId} \\
-           \T{active\_operators} : & \T{PolicyId} \\
-           \T{retired\_operators} : & \T{PolicyId} \\
-           \T{scheduler} : & \T{PolicyId} \\
-           \T{state\_queue} : & \T{PolicyId} \\
-           \T{fraud\_proof\_catalogue} : & \T{PolicyId} \\
-           \T{fraud\_proof} : & \T{PolicyId} \\
-           \T{deposit} : & \T{PolicyId} \\
-           \T{withdrawal} : & \T{PolicyId} \\
-           \T{settlement\_queue} : & \T{PolicyId} \\
-           \\
-           \T{registered\_operators\_addr} : & \T{Address} \\
-           \T{active\_operators\_addr} : & \T{Address} \\
-           \T{retired\_operators\_addr} : & \T{Address} \\
-           \T{scheduler\_addr} : & \T{Address} \\
-           \T{state\_queue\_addr} : & \T{Address} \\
-           \T{fraud\_proof\_catalogue\_addr} : & \T{Address} \\
-           \T{fraud\_proof\_addr} : & \T{Address} \\
-           \T{reserve\_addr} : & \T{Address}
-       \end{array} \right\}
+           \texttt{registered_operators} : & \texttt{PolicyId} \\\\
+           \texttt{active_operators} : & \texttt{PolicyId} \\\\
+           \texttt{retired_operators} : & \texttt{PolicyId} \\\\
+           \texttt{scheduler} : & \texttt{PolicyId} \\\\
+           \texttt{state_queue} : & \texttt{PolicyId} \\\\
+           \texttt{fraud_proof_catalogue} : & \texttt{PolicyId} \\\\
+           \texttt{fraud_proof} : & \texttt{PolicyId} \\\\
+           \texttt{deposit} : & \texttt{PolicyId} \\\\
+           \texttt{withdrawal} : & \texttt{PolicyId} \\\\
+           \texttt{settlement_queue} : & \texttt{PolicyId} \\\\
+           \texttt{registered_operators_addr} : & \texttt{Address} \\\\
+           \texttt{active_operators_addr} : & \texttt{Address} \\\\
+           \texttt{retired_operators_addr} : & \texttt{Address} \\\\
+           \texttt{scheduler_addr} : & \texttt{Address} \\\\
+           \texttt{state_queue_addr} : & \texttt{Address} \\\\
+           \texttt{fraud_proof_catalogue_addr} : & \texttt{Address} \\\\
+           \texttt{fraud_proof_addr} : & \texttt{Address} \\\\
+           \texttt{reserve_addr} : & \texttt{Address}
+       \end{array}
+   \right\}
 
-.. _h:hub-oracle-minting-policy:
 
 Minting policy
 --------------
 
-The minting policy ensures that all Midgard lists are initialized
+The minting policy ensures that all Sundial lists are initialized
 together, sent to their respective spending validator addresses, and
 deinitialized together. Redeemers:
 
 Init.
-   Initialize all Midgard lists and send their root nodes to their
+   Initialize all Sundial lists and send their root nodes to their
    respective validator addresses. Conditions:
 
    #. Let be a static parameter of the minting policy.
@@ -66,10 +63,10 @@ Init.
    #. No other tokens must be minted or burned.
 
    The nonce utxo proves authority for initialization — whoever controls
-   it is authorized to initialize the Midgard L1 data structures.
+   it is authorized to initialize the Sundial L1 data structures.
 
 Burn.
-   Deinitialize all Midgard lists and burn the hub oracle NFT.
+   Deinitialize all Sundial lists and burn the hub oracle NFT.
    Conditions:
 
    #. The transaction must burn the hub oracle NFT.
@@ -83,8 +80,6 @@ Burn.
 
    Any other burned tokens are irrelevant, and the spending validator
    ensures that no tokens are minted.
-
-.. _h:hub-oracle-spending-validator:
 
 Spending validator
 ------------------

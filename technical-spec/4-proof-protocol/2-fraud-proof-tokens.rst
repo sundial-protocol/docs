@@ -1,12 +1,8 @@
-.. _h:fraud-proof-tokens:
-
 Fraud proof tokens
 ==================
 
 Fraud proof tokens represent fraud proof computations that have
 successfully concluded.
-
-.. _h:fraud-proof-tokens-minting-policy:
 
 Minting policy
 --------------
@@ -23,18 +19,16 @@ Mint.
    #. The transaction must mint a token with the same token name as the
       token.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The token must be sent to the spending validator.
 
-.. _h:fraud-proof-tokens-spending-validator:
-
 Spending validator
 ------------------
 
-The spending validator of does *not* allow its utxo to be spent. Midgard
+The spending validator of does *not* allow its utxo to be spent. Sundial
 fraud proofs last forever.

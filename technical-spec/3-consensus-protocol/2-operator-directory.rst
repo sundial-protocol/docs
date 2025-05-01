@@ -3,14 +3,14 @@
 Operator directory
 ==================
 
-Midgard operators receive and process L2 events from users, collate them
+Sundial operators receive and process L2 events from users, collate them
 into blocks, publish the full block contents on the data availability
-layer, and commit the block headers to Midgard’s state queue on L1. This
+layer, and commit the block headers to Sundial’s state queue on L1. This
 responsibility is shared among the operators on a rotating schedule,
 with each operator getting a turn to exclusively process L2 events and
 then commit their block of events at the end of their turn.
 
-Anyone can register to become a Midgard operator if they post the
+Anyone can register to become a Sundial operator if they post the
 required ADA bond. Registrants must wait a prescribed period of time
 before they activate as an operator. An active operator can retire to
 remove themself from the rotating schedule. Retired operators must wait
@@ -25,7 +25,7 @@ registrations forfeits the bonds placed in the duplicates.
 
 Every forfeited bond is split into a reward paid to the fraud prover and
 a slashing penalty paid (via transaction fees) to the Cardano treasury.
-Among the Midgard protocol parameters, the and parameters must sum up to
+Among the Sundial protocol parameters, the and parameters must sum up to
 the parameter.
 
 .. _h:operator-directory-utxo-representation:
@@ -33,7 +33,7 @@ the parameter.
 Utxo representation
 -------------------
 
-The Operator Directory keeps track of all Midgard operators and stores
+The Operator Directory keeps track of all Sundial operators and stores
 their bond deposits. It separates operators into three groups based on
 their status, with every group using operators’ public key hashes (PKHs)
 as keys:
@@ -63,26 +63,23 @@ latest settlement resolution claims mature.
 .. math::
 
    \begin{aligned}
-       \T{RegisteredOperator} &\coloneq \Bigl( \T{activation\_time}: \T{PosixTime} \Bigr) \\
-       \T{ActiveOperator}     &\coloneq \Bigl( \T{bond\_unlock\_time}:
-           \T{Option}(\T{PosixTime}) \Bigr) \\
-       \T{RetiredOperator}    &\coloneq \Bigl( \T{bond\_unlock\_time}:
-           \T{Option}(\T{PosixTime}) \Bigr)\end{aligned}
+       \texttt{RegisteredOperator} &:= \Bigl( \texttt{activation_time} : \texttt{PosixTime} \Bigr) \\\\
+       \texttt{ActiveOperator}     &:= \Bigl( \texttt{bond_unlock_time} : \texttt{Option(PosixTime)} \Bigr) \\\\
+       \texttt{RetiredOperator}    &:= \Bigl( \texttt{bond_unlock_time} : \texttt{Option(PosixTime)} \Bigr)
+   \end{aligned}
 
-The above are app-specific types for the field of their respective
-lists’ . For example, the of is:
+The above are app-specific types for the ``datum`` field of their respective
+list elements. For example, the datum of a ``RegisteredOperator`` node is:
 
-.. math:: \T{RegisteredOperatorDatum} \coloneq \T{NodeDatum} (\T{RegisteredOperator})
+.. math::
 
-.. _h:registered-operators:
+   \texttt{RegisteredOperatorDatum} := \texttt{NodeDatum}(\texttt{RegisteredOperator})
 
 Registered operators
 --------------------
 
 The queue keeps track of operators after registering and before
 activating or de-registering them.
-
-.. _h:registered-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -92,16 +89,16 @@ linked list. It is statically parametrized on the and minting policies.
 Redeemers:
 
 Init.
-   Initialize the queue via the Midgard hub oracle. Conditions:
+   Initialize the queue via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle NFT.
+   #. The transaction must mint the Sundial hub oracle NFT.
 
    #. The transaction must Init the queue.
 
 Deinit.
-   Deinitialize the queue via the Midgard hub oracle. Conditions:
+   Deinitialize the queue via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle NFT.
+   #. The transaction must burn the Sundial hub oracle NFT.
 
    #. The transaction must Deinit the queue.
 
@@ -118,18 +115,18 @@ Register Operator.
       #. The field of must correspond to a public key hash that signed
          the transaction.
 
-      #. The field of must equal the sum of the Midgard protocol
+      #. The field of must equal the sum of the Sundial protocol
          parameter and the upper bound of the transaction’s validity
          interval.
 
-      #. The Lovelace in the must equal the Midgard parameter.
+      #. The Lovelace in the must equal the Sundial parameter.
 
    -  Verify that the registrant is not already active or retired.
 
-      #. The transaction must include the Midgard hub oracle NFT in a
+      #. The transaction must include the Sundial hub oracle NFT in a
          reference input.
 
-      #. Let be the policy ID in the corresponding field of the Midgard
+      #. Let be the policy ID in the corresponding field of the Sundial
          hub oracle.
 
       #. The transaction must include a reference input of a node that
@@ -153,10 +150,10 @@ Activate Operator.
 
    -  Verify that the registrant is being added to active operators:
 
-      #. The transaction must include the Midgard hub oracle NFT in a
+      #. The transaction must include the Sundial hub oracle NFT in a
          reference input.
 
-      #. Let be the policy ID in the corresponding field of the Midgard
+      #. Let be the policy ID in the corresponding field of the Sundial
          hub oracle.
 
       #. The transaction must Insert a node into the set, as evidenced
@@ -201,10 +198,10 @@ Remove Duplicate Slash Bond.
 
    #. If is :
 
-      #. The transaction must include the Midgard hub oracle NFT in a
+      #. The transaction must include the Sundial hub oracle NFT in a
          reference input.
 
-      #. Let be the policy ID in the corresponding field of the Midgard
+      #. Let be the policy ID in the corresponding field of the Sundial
          hub oracle.
 
       #. The transaction must include a reference input of a node that
@@ -220,8 +217,6 @@ Remove Duplicate Slash Bond.
    redeemer do not need to explicitly enforce that the is paid out
    because the submitter consents to the transaction.
 
-.. _h:registered-operators-spending-validator:
-
 Spending validator
 ~~~~~~~~~~~~~~~~~~
 
@@ -232,15 +227,11 @@ node field. Conditions:
 
 #. The transaction must mint or burn tokens of the minting policy.
 
-.. _h:active-operators:
-
 Active operators
 ----------------
 
 The set keeps track of operators after activating and before slashing or
 retiring them.
-
-.. _h:active-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -250,16 +241,16 @@ linked list. It is statically parametrized on the , , and minting
 policies. Redeemers:
 
 Init.
-   Initialize the set via the Midgard hub oracle. Conditions:
+   Initialize the set via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle NFT.
+   #. The transaction must mint the Sundial hub oracle NFT.
 
    #. The transaction must Init the set.
 
 Deinit.
-   Deinitialize the set via the Midgard hub oracle. Conditions:
+   Deinitialize the set via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle NFT.
+   #. The transaction must burn the Sundial hub oracle NFT.
 
    #. The transaction must Deinit the set.
 
@@ -289,10 +280,10 @@ Remove Operator Bad State.
    #. The transaction fees must meet or exceed the protocol parameter,
       denominated in Lovelaces.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must Remove a node from the via the Remove
@@ -317,10 +308,10 @@ Remove Operator Bad Settlement.
    #. The transaction fees must meet or exceed the protocol parameter,
       denominated in Lovelaces.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the address in the corresponding field of the Midgard hub
+   #. Let be the address in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must spend a node from the via the Disprove
@@ -343,8 +334,6 @@ Retire Operator.
    #. Let be the node inserted into the set.
 
    #. The must match between and .
-
-.. _h:active-operators-spending-validator:
 
 Spending validator
 ~~~~~~~~~~~~~~~~~~
@@ -375,16 +364,16 @@ Update Bond Hold New State.
       #. must be an node that matches the datum argument of the spending
          validator on the and fields.
 
-      #. The field of must match the sum of the Midgard parameter and
+      #. The field of must match the sum of the Sundial parameter and
          the upper bound of the transaction validity interval.
 
    -  Verify that the operator is currently committing a block header to
       the state queue:
 
-      #. The transaction must include the Midgard hub oracle NFT in a
+      #. The transaction must include the Sundial hub oracle NFT in a
          reference input.
 
-      #. Let be the policy ID in the corresponding field of the Midgard
+      #. Let be the policy ID in the corresponding field of the Sundial
          hub oracle.
 
       #. The transaction must Append a node into the via the Commit
@@ -406,31 +395,27 @@ Update Bond Hold New Settlement.
       #. must be an node that matches the datum argument of the spending
          validator on the and fields.
 
-      #. The field of must match the sum of the Midgard parameter and
+      #. The field of must match the sum of the Sundial parameter and
          the upper bound of the transaction validity interval.
 
    -  Verify that the operator is currently committing a block header to
       the state queue:
 
-      #. The transaction must include the Midgard hub oracle NFT in a
+      #. The transaction must include the Sundial hub oracle NFT in a
          reference input.
 
-      #. Let be the policy ID in the corresponding field of the Midgard
+      #. Let be the policy ID in the corresponding field of the Sundial
          hub oracle.
 
       #. The transaction must spend a settlement queue node with the
          Attach Resolution Claim redeemer. The redeemer’s field must
          match the field of the .
 
-.. _h:retired-operators:
-
 Retired operators
 -----------------
 
 The set keeps track of operators after retiring and before slashing or
 returning their ADA bonds.
-
-.. _h:retired-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -440,16 +425,16 @@ linked list. It is statically parametrized on the minting policy.
 Redeemers:
 
 Init.
-   Initialize the set via the Midgard hub oracle. Conditions:
+   Initialize the set via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle NFT.
+   #. The transaction must mint the Sundial hub oracle NFT.
 
    #. The transaction must Init the set.
 
 Deinit.
-   Deinitialize the set via the Midgard hub oracle. Conditions:
+   Deinitialize the set via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle NFT.
+   #. The transaction must burn the Sundial hub oracle NFT.
 
    #. The transaction must Deinit the set.
 
@@ -460,10 +445,10 @@ Retire Operator.
    #. The transaction must Insert a node into the set. Let that node be
       .
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must Remove a node from the set, as evidence by
@@ -499,10 +484,10 @@ Remove Operator Bad State.
    #. The transaction fees must meet or exceed the protocol parameter,
       denominated in Lovelaces.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must Remove a node from the via the Remove
@@ -527,10 +512,10 @@ Remove Operator Bad Settlement.
    #. The transaction fees must meet or exceed the protocol parameter,
       denominated in Lovelaces.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the address in the corresponding field of the Midgard hub
+   #. Let be the address in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must spend a node from the via the Disprove
@@ -539,8 +524,6 @@ Remove Operator Bad Settlement.
 
    The settlement queue’s onchain code is responsible for disposing of
    the operator’s ADA bond.
-
-.. _h:retired-operators-spending-validator:
 
 Spending validator
 ~~~~~~~~~~~~~~~~~~
