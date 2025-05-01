@@ -41,12 +41,13 @@ jobs:
 
       - name: Commit and push if changes found
         run: |
-          if ! git diff --quiet; then
-            git config user.name "GitHub Actions"
-            git config user.email "actions@github.com"
-            git add .
-            git commit -m "Daily full sync from Midgard upstream"
-            git push
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
           else
-            echo "No changes to commit."
+            git commit -m "🔄 Daily full sync from Midgard upstream"
+            git push
           fi
