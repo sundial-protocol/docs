@@ -1,1 +1,2 @@
 furo
+sphinx_rtd_themepip install sphinx_rtd_theme
