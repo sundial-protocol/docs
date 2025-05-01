@@ -26,7 +26,7 @@ jobs:
 
     - name: Fetch and merge from upstream
       run: |
-        python sync_only_upstream.py
+        python check_upstream.py
 
     - name: Commit update log if changed
       run: |
