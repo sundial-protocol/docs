@@ -1,12 +1,12 @@
 /* Top left box where logo sits */
 .wy-side-nav-search {
-    background-color: #FFD700 !important;  /* Sundial Yellow */
+    background-color: #F5A707 !important;  /* Sundial Yellow */
     padding: 1em;
 }
 
 /* Sidebar background */
 .wy-nav-side {
-    background: #FFD700 !important;  /* Sundial Yellow */
+    background: #F5A707 !important;  /* Sundial Yellow */
 }
 
 /* Sidebar link text */
@@ -18,7 +18,7 @@
 .wy-menu-vertical a:hover,
 .wy-menu-vertical .current > a {
     color: #000 !important;
-    background: #FFE347 !important;  /* Slightly lighter yellow */
+    background: #F5A707 !important;  /* Slightly lighter yellow */
 }
 
 /* Search box styling */
