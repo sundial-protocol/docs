@@ -2,8 +2,8 @@ name: Daily Upstream Sync
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Runs at 03:00 UTC daily
-  workflow_dispatch:      # Allows manual run
+    - cron: '0 3 * * *'  # Runs daily at 03:00 UTC
+  workflow_dispatch:      # Allows manual run from the Actions tab
 
 jobs:
   sync-upstream:
@@ -13,11 +13,10 @@ jobs:
     - name: Checkout your repo
       uses: actions/checkout@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}  # Enables push
+        fetch-depth: 0                      # Required for full git history
 
-
-    - name: Set up Git
+    - name: Set up Git identity
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -25,11 +24,11 @@ jobs:
     - name: Add upstream remote
       run: git remote add upstream https://github.com/Anastasia-Labs/midgard.git
 
-    - name: Fetch and merge upstream
+    - name: Fetch and merge from upstream
       run: |
-        python check_upstream.py
+        python sync_only_upstream.py
 
-    - name: Commit update log (if changed)
+    - name: Commit update log if changed
       run: |
         git add update_log.txt || true
         git diff --cached --quiet || (git commit -m "Update log after daily sync" && git push origin main)
