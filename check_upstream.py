@@ -51,19 +51,32 @@ def log_update(changed_files):
 def main():
     print("=== Checking for upstream updates ===")
     fetch_upstream()
-    changed_files = get_incoming_changes()
+
+    # Save HEAD before merge
+    old_head_out, _ = run_cmd("git rev-parse HEAD")
+    old_head = old_head_out.strip()
+
+    # Check if upstream has new commits
+    changed_files = run_cmd("git diff --name-only HEAD..upstream/main")[0].splitlines()
+    changed_files = [f for f in changed_files if f]
 
     if changed_files:
         print(">>> Incoming changes found:")
         for f in changed_files:
             print(f" - {f}")
+
+        # Merge in upstream
         merge_upstream()
         render_docs()
         commit_and_push()
+
+        # Compare post-merge HEAD to pre-merge HEAD
+        new_files = run_cmd(f"git diff --name-only {old_head} HEAD")[0].splitlines()
+        log_update(new_files)
     else:
         print(">>> No upstream changes detected.")
+        log_update([])  # Log 'no change'
 
-    log_update(changed_files)
 
 if __name__ == "__main__":
     main()
