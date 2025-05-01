@@ -1,62 +1,34 @@
-name: Sync Midgard
+name: Daily Upstream Sync
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # Every day at 5:00 UTC
-  workflow_dispatch:
+    - cron: '0 3 * * *'  # Runs at 03:00 UTC daily
+  workflow_dispatch:      # Allows manual run
 
 jobs:
-  sync:
+  sync-upstream:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout your repo
-        uses: actions/checkout@v4
+    - name: Checkout your repo
+      uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+        fetch-depth: 0  # Needed for full Git history
 
-      - name: Install rsync and diffutils
-        run: sudo apt-get update && sudo apt-get install -y rsync diffutils§
+    - name: Set up Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Clone Midgard
-        run: |
-          git clone https://github.com/Anastasia-Labs/midgard.git midgard-latest
+    - name: Add upstream remote
+      run: git remote add upstream https://github.com/Anastasia-Labs/midgard.git
 
-      - name: Backup current state
-        run: |
-          mkdir backup-current
-          rsync -a --exclude='.git' ./ backup-current/
+    - name: Fetch and merge upstream
+      run: |
+        python check_upstream.py
 
-      - name: Sync Midgard into current repo
-        run: |
-          rsync -av --delete --exclude='.git' midgard-latest/ ./ || [ $? -eq 24 ]
-
-      - name: Show changed files
-        run: |
-          echo "==== Changed Files from Midgard ===="
-          if [ -d backup-current ]; then
-            diff -qr backup-current/ ./ || echo "No changes detected."
-          else
-            echo "⚠️ backup-current not found."
-          fi
-
-      - name: Save list of changed files
-        run: |
-          echo "Sync on $(date -u)" >> midgard-sync-log.txt
-          if [ -d backup-current ]; then
-            diff -qr backup-current/ ./ >> midgard-sync-log.txt || echo "No changes" >> midgard-sync-log.txt
-          else
-            echo "No backup to compare." >> midgard-sync-log.txt
-          fi
-          echo "----" >> midgard-sync-log.txt
-
-      - name: Commit and push if changes found
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-
-          git add -A
-          if git diff --cached --quiet; then
-            echo "✅ No changes to commit."
-          else
-            git commit -m "🔄 Daily sync from Midgard upstream"
-            git push
-          fi
+    - name: Commit update log (if changed)
+      run: |
+        git add update_log.txt || true
+        git diff --cached --quiet || (git commit -m "Update log after daily sync" && git push origin main)
