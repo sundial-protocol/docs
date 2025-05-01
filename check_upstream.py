@@ -14,7 +14,7 @@ def fetch_upstream():
     run_cmd("git fetch upstream")
 
 def get_incoming_changes():
-    out, _ = run_cmd("git diff --name-only upstream/main HEAD")
+    out, _ = run_cmd("git diff --name-only HEAD..upstream/main")
     return [line for line in out.splitlines() if line]
 
 def merge_upstream():
