@@ -30,3 +30,20 @@
     background: #fff;
     color: #000;
 }
+
+/* Expand content to full width */
+.wy-nav-content {
+    max-width: 100% !important;
+    padding: 2rem !important;
+}
+
+/* Optionally center text and restrict code blocks for readability */
+.wy-nav-content-wrap {
+    background-color: #fff !important;
+}
+
+.rst-content code,
+.rst-content pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
