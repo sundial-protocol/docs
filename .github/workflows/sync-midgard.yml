@@ -26,7 +26,7 @@ jobs:
 
       - name: Sync Midgard into current repo
         run: |
-          rsync -av --delete --exclude='.git' midgard-latest/ ./ > sync-log.txt
+          rsync -av --delete --exclude='.git' midgard-latest/ ./ > sync-log.txt || [ $? -eq 24 ]
 
       - name: Show changed files
         run: |
