@@ -47,3 +47,50 @@
     white-space: pre-wrap;
     word-break: break-word;
 }
+
+/* Make "CONTENTS:" black */
+.wy-menu-vertical .caption {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* Remove version dropdown */
+.rst-versions {
+    display: none !important;
+}
+
+/* === LIGHT MODE (default) === */
+body.light-mode .wy-nav-content {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* === DARK MODE === */
+body.dark-mode .wy-nav-content {
+    background: #121212 !important;
+    color: #eee !important;
+}
+
+body.dark-mode .rst-content a {
+    color: #88c8ff !important;
+}
+
+/* Code blocks in dark mode */
+body.dark-mode .highlight {
+    background: #1e1e1e !important;
+}
+
+/* Toggle switch styling */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
