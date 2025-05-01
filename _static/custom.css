@@ -63,36 +63,28 @@ div.rst-versions,
     overflow: hidden !important;
 }
 
-/* === LIGHT MODE (default) === */
-body.light-mode .wy-nav-content {
-    background: #fff !important;
-    color: #000 !important;
+/* Container in the top-right of the page */
+.top-right-icons {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* === DARK MODE === */
-body.dark-mode .wy-nav-content {
-    background: #121212 !important;
-    color: #eee !important;
-}
-
-body.dark-mode .rst-content a {
-    color: #88c8ff !important;
-}
-
-/* Code blocks in dark mode */
-body.dark-mode .highlight {
-    background: #1e1e1e !important;
-}
-
-/* Inline toggle button (next to page source) */
-.theme-toggle-inline {
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    margin-left: 1em;
+/* Icon size + interaction */
+.top-right-icons .icon {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    fill: #000;
+}
+
+#toggle-theme {
+    background: none;
+    border: none;
+    padding: 0;
 }
 

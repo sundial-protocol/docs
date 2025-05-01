@@ -1,6 +1,10 @@
 html_logo = "_static/sundial_logo.png"
 html_theme = "sphinx_rtd_theme"
 
+html_context = {
+    "display_github": False,  # Turn off default "Edit on GitHub"
+}
+
 html_theme_options = {
     'logo_only': True,
     'display_version': False,
