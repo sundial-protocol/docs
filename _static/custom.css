@@ -54,10 +54,10 @@
 }
 
 /* Optional: remove border/box shadow if needed */
-.wy-menu-vertical li.toctree-l1.current > a {
+/* .wy-menu-vertical li.toctree-l1.current > a {
     box-shadow: none !important;
     border-bottom: none !important;
-}
+} */
 
 /* ===== Content Area ===== */
 
