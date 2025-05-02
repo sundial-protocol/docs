@@ -1,3 +1,22 @@
+/* Remove spacing and background from top box */
+.wy-side-nav-search {
+    background-color: transparent !important;
+    padding: 0.5em 1em 0.5em 1em !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Shrink height and spacing */
+.wy-side-nav-search > a,
+.wy-side-nav-search img {
+    display: none !important;  /* Hide logo if still there */
+}
+
+/* Adjust position of search bar */
+.wy-side-nav-search input[type="text"] {
+    margin-top: 0.2em;
+}
+
 /* Top left box where logo sits */
 .wy-side-nav-search {
     background-color: #F5A707 !important;  /* Sundial Yellow */

@@ -1,4 +1,3 @@
-html_logo = "_static/sundial_logo.png"
 html_theme = "sphinx_rtd_theme"
 
 html_context = {
