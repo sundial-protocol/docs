@@ -1,62 +1,64 @@
-/* Remove spacing and background from top box */
-.wy-side-nav-search {
-    background-color: transparent !important;
-    padding: 0.5em 1em 0.5em 1em !important;
-    margin-bottom: 0 !important;
-    box-shadow: none !important;
-}
+/* ===== Sidebar ===== */
 
-/* Shrink height and spacing */
-.wy-side-nav-search > a,
-.wy-side-nav-search img {
-    display: none !important;  /* Hide logo if still there */
-}
-
-/* Adjust position of search bar */
-.wy-side-nav-search input[type="text"] {
-    margin-top: 0.2em;
-}
-
-/* Top left box where logo sits */
-.wy-side-nav-search {
-    background-color: #F5A707 !important;  /* Sundial Yellow */
-    padding: 1em;
-}
-
-/* Sidebar background */
+/* Entire sidebar background */
 .wy-nav-side {
     background: #F5A707 !important;  /* Sundial Yellow */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Search bar container — move to top, remove extra spacing */
+.wy-side-nav-search {
+    background: transparent !important;
+    padding: 0.5em 1em !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
+/* Remove any logo or heading above the search bar */
+.wy-side-nav-search > a,
+.wy-side-nav-search img {
+    display: none !important;
+}
+
+/* Search input styling */
+.wy-side-nav-search input[type="text"] {
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    margin-top: 0.2em;
 }
 
 /* Sidebar link text */
 .wy-menu-vertical a {
-    color: #000 !important;  /* Black text */
+    color: #000 !important;
 }
 
 /* Hover and active sidebar links */
 .wy-menu-vertical a:hover,
 .wy-menu-vertical .current > a {
     color: #000 !important;
-    background: #F5A707 !important;  /* Slightly lighter yellow */
-}
-
-/* Search box styling */
-.wy-side-nav-search input[type="text"] {
-    background: #fff;
-    color: #000;
-    border: 1px solid #ccc;
-}
-
-/* Main content */
-.wy-nav-content {
-    background: #fff;
-    color: #000;
     background: #F5A707 !important;
+}
+
+/* Make "CONTENTS:" black */
+.wy-menu-vertical .caption {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* ===== Content Area ===== */
+
+/* Main content styling */
+.wy-nav-content {
+    background: #fff !important;
+    color: #000 !important;
     max-width: 100% !important;
     padding: 2rem !important;
 }
 
-/* Background behind content (for full-page width) */
+/* Background behind content area */
 .wy-nav-content-wrap {
     background-color: #fff !important;
 }
@@ -68,45 +70,16 @@
     word-break: break-word;
 }
 
-/* Make "CONTENTS:" black */
-.wy-menu-vertical .caption {
-    color: #000 !important;
-    font-weight: bold;
-}
-
-/* Forcefully hide "latest" version label injected by Read the Docs */
+/* ===== Version Badge (Remove) ===== */
 .rst-versions,
-.rst-current-version {
+.rst-current-version,
+div.rst-versions.rst-badge {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
-    overflow: hidden !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     position: absolute !important;
     top: -9999px !important;
 }
-
-/* Container in the top-right of the page */
-.top-right-icons {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Icon size + interaction */
-.top-right-icons .icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    fill: #000;
-}
-
-#toggle-theme {
-    background: none;
-    border: none;
-    padding: 0;
-}
-
