@@ -24,6 +24,6 @@ Metadata
 --------
 
 - **Subject:** Cardano blockchain Layer 2 scaling
-- **Keywords:** Cardano, blockchain, L2, scaling, Midgard, optimistic rollup
+- **Keywords:** Cardano, blockchain, L2, scaling, Sundial, optimistic rollup
 - **Publisher:** Anastasia Labs
 - **Contact:** `info@anastasialabs.com <mailto:info@anastasialabs.com>`__
