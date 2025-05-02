@@ -150,10 +150,11 @@ a[title="View page source"] {
     color: #000 !important;
 }
 
-/* Lighter yellow hover for all sidebar levels */
+/* Light yellow hover for all sidebar levels and nested dropdowns */
 .wy-menu-vertical a:hover,
-.wy-menu-vertical ul a:hover,
-.wy-menu-vertical ul ul a:hover {
-    background-color: #FFD75E !important;  /* Lighter Sundial yellow */
+.wy-menu-vertical li > a:hover,
+.wy-menu-vertical li ul li > a:hover,
+.wy-menu-vertical li ul li ul li > a:hover {
+    background-color: #FFD75E !important;
     color: #000 !important;
 }
