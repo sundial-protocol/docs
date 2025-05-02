@@ -159,3 +159,14 @@ a[title="View page source"] {
 .wy-menu-vertical ul ul ul ul a {
     color: #000 !important;
 }
+
+/* Fix grey block from active nested submenu container */
+.wy-menu-vertical li.current > ul {
+    background-color: #F5A707 !important;
+}
+
+/* And for extra depth — apply to multi-level nested lists inside current items */
+.wy-menu-vertical li.current > ul ul,
+.wy-menu-vertical li.current > ul ul ul {
+    background-color: #F5A707 !important;
+}
