@@ -149,3 +149,11 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
     color: #000 !important;
 }
+
+/* Lighter yellow hover for all sidebar levels */
+.wy-menu-vertical a:hover,
+.wy-menu-vertical ul a:hover,
+.wy-menu-vertical ul ul a:hover {
+    background-color: #FFD75E !important;  /* Lighter Sundial yellow */
+    color: #000 !important;
+}
