@@ -71,6 +71,38 @@
     word-break: break-word;
 }
 
+/* Make the whole page background Sundial Yellow */
+body,
+.wy-nav-content-wrap,
+.wy-nav-content,
+.wy-grid-for-nav,
+.document {
+    background-color: #F5A707 !important;
+    color: #000 !important;
+}
+
+/* Force white content block background off */
+.rst-content,
+.wy-nav-content .section,
+.wy-nav-content .body,
+.wy-nav-content .document {
+    background: transparent !important;
+}
+
+/* Ensure code blocks blend in */
+.rst-content pre,
+.rst-content code {
+    background-color: #F5A707 !important;
+    color: #000 !important;
+    border: none;
+}
+
+/* Footer links (override blue) */
+footer a,
+footer a:visited {
+    color: #000 !important;
+}
+
 /* ===== Version Badge (Remove) ===== */
 .rst-versions,
 .rst-current-version,
