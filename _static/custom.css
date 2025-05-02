@@ -74,13 +74,15 @@
     font-weight: bold;
 }
 
-/* Forcefully hide the version switcher, even after JS injection */
-div.rst-versions,
-.rst-versions.rst-badge {
+/* Forcefully hide "latest" version label injected by Read the Docs */
+.rst-versions,
+.rst-current-version {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
     overflow: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
 }
 
 /* Container in the top-right of the page */
