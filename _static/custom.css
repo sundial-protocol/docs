@@ -143,3 +143,19 @@ a[href*="_sources"],
 a[title="View page source"] {
     display: none !important;
 }
+
+/* Third-level dropdown (sub-submenu) background fix */
+.wy-menu-vertical ul ul ul {
+    background-color: #F5A707 !important;
+}
+
+/* Third-level link text */
+.wy-menu-vertical ul ul ul a {
+    color: #000 !important;
+}
+
+/* Active third-level link */
+.wy-menu-vertical li.toctree-l3.current > a {
+    background-color: #F5A707 !important;
+    color: #000 !important;
+}
