@@ -11,3 +11,8 @@ python:
 
 sphinx:
   configuration: conf.py
+
+
+# 🔻 ADD THIS BLOCK
+features:
+  versions: false

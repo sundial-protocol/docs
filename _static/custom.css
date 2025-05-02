@@ -59,6 +59,22 @@
     border-bottom: none !important;
 } */
 
+/* Make submenu dropdowns Sundial yellow */
+.wy-menu-vertical ul {
+    background-color: #F5A707 !important;
+}
+
+/* Make sidebar links black (in submenus too) */
+.wy-menu-vertical ul a {
+    color: #000 !important;
+}
+
+/* Lighter yellow hover effect on all sidebar items */
+.wy-menu-vertical a:hover {
+    background-color: #FFD75E !important;  /* Lighter yellow */
+    color: #000 !important;
+}
+
 /* ===== Content Area ===== */
 
 /* Main content styling */
