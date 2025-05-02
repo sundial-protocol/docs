@@ -146,3 +146,7 @@ a[title="View page source"] {
 .wy-menu-vertical li.toctree-l4.current > ul {
     background-color: #F5A707 !important;
 }
+
+.wy-menu-vertical li {
+    background-color: #F5A707 !important;
+}
