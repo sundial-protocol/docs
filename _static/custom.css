@@ -132,3 +132,11 @@ div.wy-side-nav-search span,
     font-size: 0 !important;
     overflow: hidden !important;
 }
+
+/* Hide the "View page source" link */
+.headerlink,
+.documentwrapper .rst-content .viewcode-link,
+a[href*="_sources"],
+a[title="View page source"] {
+    display: none !important;
+}
