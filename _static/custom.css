@@ -35,11 +35,17 @@
     color: #000 !important;
 }
 
-/* Hover and active sidebar links */
-.wy-menu-vertical a:hover,
-.wy-menu-vertical .current > a {
+/* Active submenu item (remove grey) */
+.wy-menu-vertical li.current > a.reference.internal {
+    background-color: #F5A707 !important;
     color: #000 !important;
-    background: #F5A707 !important;
+    font-weight: bold !important;
+}
+
+/* Hover and active sidebar links */
+.wy-menu-vertical a:hover {
+    background-color: #FFD75E !important;  /* Lighter yellow on hover */
+    color: #000 !important;
 }
 
 /* Make "CONTENTS:" black */
@@ -48,30 +54,13 @@
     font-weight: bold;
 }
 
-/* Make expanded sidebar dropdowns match Sundial yellow */
+/* Expanded sidebar dropdowns match Sundial yellow */
 .wy-menu-vertical ul {
     background-color: #F5A707 !important;
 }
 
-/* Optional: remove border/box shadow if needed */
-/* .wy-menu-vertical li.toctree-l1.current > a {
-    box-shadow: none !important;
-    border-bottom: none !important;
-} */
-
-/* Make submenu dropdowns Sundial yellow */
-.wy-menu-vertical ul {
-    background-color: #F5A707 !important;
-}
-
-/* Make sidebar links black (in submenus too) */
+/* Sidebar submenu link color */
 .wy-menu-vertical ul a {
-    color: #000 !important;
-}
-
-/* Lighter yellow hover effect on all sidebar items */
-.wy-menu-vertical a:hover {
-    background-color: #FFD75E !important;  /* Lighter yellow */
     color: #000 !important;
 }
 
@@ -79,36 +68,22 @@
 
 /* Main content styling */
 .wy-nav-content {
-    background: #fff !important;
+    background-color: #F5A707 !important;
     color: #000 !important;
-    background: #F5A707 !important;
     max-width: 100% !important;
     padding: 2rem !important;
 }
 
 /* Background behind content area */
-.wy-nav-content-wrap {
-    background-color: #fff !important;
-}
-
-/* Code block formatting */
-.rst-content code,
-.rst-content pre {
-    white-space: pre-wrap;
-    word-break: break-word;
-}
-
-/* Make the whole page background Sundial Yellow */
-body,
 .wy-nav-content-wrap,
-.wy-nav-content,
+body,
 .wy-grid-for-nav,
 .document {
     background-color: #F5A707 !important;
     color: #000 !important;
 }
 
-/* Force white content block background off */
+/* Remove default white content block background */
 .rst-content,
 .wy-nav-content .section,
 .wy-nav-content .body,
@@ -116,9 +91,11 @@ body,
     background: transparent !important;
 }
 
-/* Ensure code blocks blend in */
-.rst-content pre,
-.rst-content code {
+/* Code block formatting */
+.rst-content code,
+.rst-content pre {
+    white-space: pre-wrap;
+    word-break: break-word;
     background-color: #F5A707 !important;
     color: #000 !important;
     border: none;
@@ -133,18 +110,7 @@ footer a:visited {
 /* ===== Version Badge (Remove) ===== */
 .rst-versions,
 .rst-current-version,
-div.rst-versions.rst-badge {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    max-height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    position: absolute !important;
-    top: -9999px !important;
-}
-
-/* Permanently hide version selector injected by Read the Docs */
+div.rst-versions.rst-badge,
 div.rst-versions,
 div.rst-current-version,
 div.wy-side-nav-search > div:nth-child(1),
@@ -160,7 +126,7 @@ div.wy-side-nav-search span,
     overflow: hidden !important;
 }
 
-/* Hide the "View page source" link */
+/* ===== Hide "View page source" ===== */
 .headerlink,
 .documentwrapper .rst-content .viewcode-link,
 a[href*="_sources"],
