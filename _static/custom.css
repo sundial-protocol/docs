@@ -135,11 +135,14 @@ a[title="View page source"] {
     display: none !important;
 }
 
-/* Fully eliminate grey background from active nested container elements */
-.wy-menu-vertical li.current,
+/* Force background color on all active container <li> elements */
 .wy-menu-vertical li.toctree-l1.current,
 .wy-menu-vertical li.toctree-l2.current,
 .wy-menu-vertical li.toctree-l3.current,
-.wy-menu-vertical li.toctree-l4.current {
+.wy-menu-vertical li.toctree-l4.current,
+.wy-menu-vertical li.toctree-l1.current > ul,
+.wy-menu-vertical li.toctree-l2.current > ul,
+.wy-menu-vertical li.toctree-l3.current > ul,
+.wy-menu-vertical li.toctree-l4.current > ul {
     background-color: #F5A707 !important;
 }
