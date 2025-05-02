@@ -1,13 +1,11 @@
-/* ===== Sidebar ===== */
-
-/* Entire sidebar background */
+/* ===== Sidebar Background ===== */
 .wy-nav-side {
-    background: #F5A707 !important;  /* Sundial Yellow */
+    background: #F5A707 !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
-/* Search bar container — move to top, remove extra spacing */
+/* Search Bar */
 .wy-side-nav-search {
     background: transparent !important;
     padding: 0.5em 1em !important;
@@ -15,14 +13,10 @@
     box-shadow: none !important;
     border-bottom: none !important;
 }
-
-/* Remove any logo or heading above the search bar */
 .wy-side-nav-search > a,
 .wy-side-nav-search img {
     display: none !important;
 }
-
-/* Search input styling */
 .wy-side-nav-search input[type="text"] {
     background: #fff;
     color: #000;
@@ -30,61 +24,64 @@
     margin-top: 0.2em;
 }
 
-/* Sidebar link text */
+/* Sidebar Links */
 .wy-menu-vertical a {
     color: #000 !important;
 }
+.wy-menu-vertical .caption {
+    color: #000 !important;
+    font-weight: bold;
+}
 
-/* Active link background on all levels */
+/* Active Item Highlighting (all levels) */
 .wy-menu-vertical li.toctree-l1.current > a,
 .wy-menu-vertical li.toctree-l2.current > a,
 .wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l4.current > a,
 .wy-menu-vertical li.current > a.reference.internal {
     background-color: #F5A707 !important;
     color: #000 !important;
     font-weight: bold !important;
 }
 
-/* Hover styling for all sidebar levels */
+/* Hover Styling for All Levels */
 .wy-menu-vertical a:hover,
 .wy-menu-vertical li > a:hover,
 .wy-menu-vertical li ul li > a:hover,
-.wy-menu-vertical li ul li ul li > a:hover {
-    background-color: #FFD75E !important;  /* Lighter Sundial yellow */
+.wy-menu-vertical li ul li ul li > a:hover,
+.wy-menu-vertical li ul li ul li ul li > a:hover {
+    background-color: #FFD75E !important;
     color: #000 !important;
 }
 
-/* Sidebar headings (e.g., "CONTENTS:") */
-.wy-menu-vertical .caption {
-    color: #000 !important;
-    font-weight: bold;
-}
-
-/* Background for dropdowns at all levels */
+/* Dropdown Backgrounds (all nested levels) */
 .wy-menu-vertical ul,
 .wy-menu-vertical ul ul,
-.wy-menu-vertical ul ul ul {
+.wy-menu-vertical ul ul ul,
+.wy-menu-vertical ul ul ul ul {
+    background-color: #F5A707 !important;
+}
+.wy-menu-vertical ul a,
+.wy-menu-vertical ul ul a,
+.wy-menu-vertical ul ul ul a,
+.wy-menu-vertical ul ul ul ul a {
+    color: #000 !important;
+}
+
+/* Fix grey dropdown on expanded submenus */
+.wy-menu-vertical li.current > ul,
+.wy-menu-vertical li.current > ul ul,
+.wy-menu-vertical li.current > ul ul ul {
     background-color: #F5A707 !important;
 }
 
-/* Sidebar submenu text color */
-.wy-menu-vertical ul a,
-.wy-menu-vertical ul ul a,
-.wy-menu-vertical ul ul ul a {
-    color: #000 !important;
-}
-
 /* ===== Content Area ===== */
-
-/* Main content styling */
 .wy-nav-content {
     background-color: #F5A707 !important;
     color: #000 !important;
     max-width: 100% !important;
     padding: 2rem !important;
 }
-
-/* Global background */
 body,
 .wy-nav-content-wrap,
 .wy-grid-for-nav,
@@ -92,16 +89,12 @@ body,
     background-color: #F5A707 !important;
     color: #000 !important;
 }
-
-/* Remove default white content background */
 .rst-content,
 .wy-nav-content .section,
 .wy-nav-content .body,
 .wy-nav-content .document {
     background: transparent !important;
 }
-
-/* Code block formatting */
 .rst-content pre,
 .rst-content code {
     white-space: pre-wrap;
@@ -111,18 +104,16 @@ body,
     border: none;
 }
 
-/* Footer links (override blue) */
+/* Footer */
 footer a,
 footer a:visited {
     color: #000 !important;
 }
 
-/* ===== Version Badge (Remove) ===== */
+/* ===== Remove RTD Elements ===== */
 .rst-versions,
 .rst-current-version,
 div.rst-versions.rst-badge,
-div.rst-versions,
-div.rst-current-version,
 div.wy-side-nav-search > div:nth-child(1),
 div.wy-side-nav-search span,
 .wy-side-nav-search .rst-current-version {
@@ -136,37 +127,10 @@ div.wy-side-nav-search span,
     overflow: hidden !important;
 }
 
-/* ===== Hide "View page source" ===== */
+/* Hide "View page source" link */
 .headerlink,
 .documentwrapper .rst-content .viewcode-link,
 a[href*="_sources"],
 a[title="View page source"] {
     display: none !important;
-}
-
-/* Fix all nested dropdown containers (ul) to be Sundial Yellow */
-.wy-menu-vertical ul,
-.wy-menu-vertical ul ul,
-.wy-menu-vertical ul ul ul,
-.wy-menu-vertical ul ul ul ul {
-    background-color: #F5A707 !important;
-}
-
-/* Ensure ALL link text stays black across all levels */
-.wy-menu-vertical ul a,
-.wy-menu-vertical ul ul a,
-.wy-menu-vertical ul ul ul a,
-.wy-menu-vertical ul ul ul ul a {
-    color: #000 !important;
-}
-
-/* Fix grey block from active nested submenu container */
-.wy-menu-vertical li.current > ul {
-    background-color: #F5A707 !important;
-}
-
-/* And for extra depth — apply to multi-level nested lists inside current items */
-.wy-menu-vertical li.current > ul ul,
-.wy-menu-vertical li.current > ul ul ul {
-    background-color: #F5A707 !important;
 }
