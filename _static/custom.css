@@ -75,6 +75,30 @@
     background-color: #F5A707 !important;
 }
 
+/* ===== Fix for L3 and L4 Items ===== */
+.wy-menu-vertical li.toctree-l3,
+.wy-menu-vertical li.toctree-l4,
+.wy-menu-vertical li.toctree-l3 > a,
+.wy-menu-vertical li.toctree-l4 > a,
+.wy-menu-vertical li.toctree-l3.current,
+.wy-menu-vertical li.toctree-l4.current,
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l4.current > a {
+    background-color: #F5A707 !important;
+    color: #000 !important;
+}
+.wy-menu-vertical li.toctree-l3 > ul,
+.wy-menu-vertical li.toctree-l4 > ul,
+.wy-menu-vertical li.toctree-l3.current > ul,
+.wy-menu-vertical li.toctree-l4.current > ul {
+    background-color: #F5A707 !important;
+}
+.wy-menu-vertical li.toctree-l3 a:hover,
+.wy-menu-vertical li.toctree-l4 a:hover {
+    background-color: #FFD75E !important;
+    color: #000 !important;
+}
+
 /* ===== Content Area ===== */
 .wy-nav-content {
     background-color: #F5A707 !important;
@@ -147,19 +171,15 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
 }
 
-/* 🟡 Force background yellow on ALL sidebar items — at any nesting level */
+/* 🟡 Force yellow background on all levels */
 .wy-menu-vertical li.toctree-l1,
 .wy-menu-vertical li.toctree-l2,
 .wy-menu-vertical li.toctree-l3,
-.wy-menu-vertical li.toctree-l4,
-.wy-menu-vertical li.toctree-l1.current,
-.wy-menu-vertical li.toctree-l2.current,
-.wy-menu-vertical li.toctree-l3.current,
-.wy-menu-vertical li.toctree-l4.current {
+.wy-menu-vertical li.toctree-l4 {
     background-color: #F5A707 !important;
 }
 
-/* 🟡 Also make sure any nested dropdown ULs are yellow */
+/* 🟡 Also ensure any nested dropdown ULs are yellow */
 .wy-menu-vertical li > ul,
 .wy-menu-vertical li ul ul,
 .wy-menu-vertical li ul ul ul {
