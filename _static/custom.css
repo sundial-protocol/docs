@@ -150,3 +150,12 @@ a[title="View page source"] {
 .wy-menu-vertical li {
     background-color: #F5A707 !important;
 }
+
+/* Eliminate grey background from active third-level sidebar entries */
+.wy-menu-vertical li.toctree-l3.current,
+.wy-menu-vertical li.toctree-l4.current,
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l4.current > a {
+    background-color: #F5A707 !important;
+    color: #000 !important;
+}
