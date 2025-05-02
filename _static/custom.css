@@ -5,6 +5,10 @@
     margin-top: 0 !important;
 }
 
+div.switch-menus {
+    display: none !important;
+}
+
 /* Search Bar */
 .wy-side-nav-search {
     background: transparent !important;
@@ -198,3 +202,4 @@ a[title="View page source"] {
     background-color: #FFD75E !important;
     color: #000 !important;
 }
+
