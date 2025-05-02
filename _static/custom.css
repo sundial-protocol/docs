@@ -13,7 +13,7 @@ div.switch-menus {
 .wy-side-nav-search {
     background: transparent !important;
     padding: 0.5em 1em !important;
-    margin: 0 !important;
+    margin: 1em 0 0 0 !important;
     box-shadow: none !important;
     border-bottom: none !important;
 }
