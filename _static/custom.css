@@ -147,15 +147,34 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
 }
 
-.wy-menu-vertical li {
+/* 🟡 Force background yellow on ALL sidebar items — at any nesting level */
+.wy-menu-vertical li.toctree-l1,
+.wy-menu-vertical li.toctree-l2,
+.wy-menu-vertical li.toctree-l3,
+.wy-menu-vertical li.toctree-l4,
+.wy-menu-vertical li.toctree-l1.current,
+.wy-menu-vertical li.toctree-l2.current,
+.wy-menu-vertical li.toctree-l3.current,
+.wy-menu-vertical li.toctree-l4.current {
     background-color: #F5A707 !important;
 }
 
-/* Eliminate grey background from active third-level sidebar entries */
-.wy-menu-vertical li.toctree-l3.current,
-.wy-menu-vertical li.toctree-l4.current,
-.wy-menu-vertical li.toctree-l3.current > a,
-.wy-menu-vertical li.toctree-l4.current > a {
+/* 🟡 Also make sure any nested dropdown ULs are yellow */
+.wy-menu-vertical li > ul,
+.wy-menu-vertical li ul ul,
+.wy-menu-vertical li ul ul ul {
     background-color: #F5A707 !important;
+}
+
+/* ⚫ Ensure all links are black, even inside nested dropdowns */
+.wy-menu-vertical a,
+.wy-menu-vertical li a,
+.wy-menu-vertical ul li a {
+    color: #000 !important;
+}
+
+/* 💡 Hover highlight (lighter yellow) */
+.wy-menu-vertical a:hover {
+    background-color: #FFD75E !important;
     color: #000 !important;
 }
