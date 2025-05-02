@@ -135,17 +135,11 @@ a[title="View page source"] {
     display: none !important;
 }
 
-
-/* Kill all remaining grey from active submenu containers */
-.wy-menu-vertical li.current > ul,
-.wy-menu-vertical li.current > ul ul,
-.wy-menu-vertical li.current > ul ul ul,
-.wy-menu-vertical li.current > ul ul ul ul {
-    background-color: #F5A707 !important;
-}
-
-/* Just in case: remove padding/margins that cause overlap */
-.wy-menu-vertical li.current > ul ul li,
-.wy-menu-vertical li.current > ul ul ul li {
+/* Fully eliminate grey background from active nested container elements */
+.wy-menu-vertical li.current,
+.wy-menu-vertical li.toctree-l1.current,
+.wy-menu-vertical li.toctree-l2.current,
+.wy-menu-vertical li.toctree-l3.current,
+.wy-menu-vertical li.toctree-l4.current {
     background-color: #F5A707 !important;
 }
