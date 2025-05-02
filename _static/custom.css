@@ -83,3 +83,19 @@ div.rst-versions.rst-badge {
     position: absolute !important;
     top: -9999px !important;
 }
+
+/* Permanently hide version selector injected by Read the Docs */
+div.rst-versions,
+div.rst-current-version,
+div.wy-side-nav-search > div:nth-child(1),
+div.wy-side-nav-search span,
+.wy-side-nav-search .rst-current-version {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    overflow: hidden !important;
+}
