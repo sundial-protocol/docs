@@ -48,6 +48,17 @@
     font-weight: bold;
 }
 
+/* Make expanded sidebar dropdowns match Sundial yellow */
+.wy-menu-vertical ul {
+    background-color: #F5A707 !important;
+}
+
+/* Optional: remove border/box shadow if needed */
+.wy-menu-vertical li.toctree-l1.current > a {
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
 /* ===== Content Area ===== */
 
 /* Main content styling */
