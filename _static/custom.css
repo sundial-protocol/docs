@@ -35,32 +35,42 @@
     color: #000 !important;
 }
 
-/* Active submenu item (remove grey) */
+/* Active link background on all levels */
+.wy-menu-vertical li.toctree-l1.current > a,
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a,
 .wy-menu-vertical li.current > a.reference.internal {
     background-color: #F5A707 !important;
     color: #000 !important;
     font-weight: bold !important;
 }
 
-/* Hover and active sidebar links */
-.wy-menu-vertical a:hover {
-    background-color: #FFD75E !important;  /* Lighter yellow on hover */
+/* Hover styling for all sidebar levels */
+.wy-menu-vertical a:hover,
+.wy-menu-vertical li > a:hover,
+.wy-menu-vertical li ul li > a:hover,
+.wy-menu-vertical li ul li ul li > a:hover {
+    background-color: #FFD75E !important;  /* Lighter Sundial yellow */
     color: #000 !important;
 }
 
-/* Make "CONTENTS:" black */
+/* Sidebar headings (e.g., "CONTENTS:") */
 .wy-menu-vertical .caption {
     color: #000 !important;
     font-weight: bold;
 }
 
-/* Expanded sidebar dropdowns match Sundial yellow */
-.wy-menu-vertical ul {
+/* Background for dropdowns at all levels */
+.wy-menu-vertical ul,
+.wy-menu-vertical ul ul,
+.wy-menu-vertical ul ul ul {
     background-color: #F5A707 !important;
 }
 
-/* Sidebar submenu link color */
-.wy-menu-vertical ul a {
+/* Sidebar submenu text color */
+.wy-menu-vertical ul a,
+.wy-menu-vertical ul ul a,
+.wy-menu-vertical ul ul ul a {
     color: #000 !important;
 }
 
@@ -74,16 +84,16 @@
     padding: 2rem !important;
 }
 
-/* Background behind content area */
-.wy-nav-content-wrap,
+/* Global background */
 body,
+.wy-nav-content-wrap,
 .wy-grid-for-nav,
 .document {
     background-color: #F5A707 !important;
     color: #000 !important;
 }
 
-/* Remove default white content block background */
+/* Remove default white content background */
 .rst-content,
 .wy-nav-content .section,
 .wy-nav-content .body,
@@ -92,8 +102,8 @@ body,
 }
 
 /* Code block formatting */
-.rst-content code,
-.rst-content pre {
+.rst-content pre,
+.rst-content code {
     white-space: pre-wrap;
     word-break: break-word;
     background-color: #F5A707 !important;
@@ -132,29 +142,4 @@ div.wy-side-nav-search span,
 a[href*="_sources"],
 a[title="View page source"] {
     display: none !important;
-}
-
-/* Force nested dropdown menus (3rd level) to be Sundial yellow */
-.wy-menu-vertical ul ul {
-    background-color: #F5A707 !important;
-}
-
-/* Ensure all links remain black */
-.wy-menu-vertical ul ul a {
-    color: #000 !important;
-}
-
-/* Optional: make active nested page yellow instead of grey */
-.wy-menu-vertical li.current > ul > li > a.reference.internal {
-    background-color: #F5A707 !important;
-    color: #000 !important;
-}
-
-/* Light yellow hover for all sidebar levels and nested dropdowns */
-.wy-menu-vertical a:hover,
-.wy-menu-vertical li > a:hover,
-.wy-menu-vertical li ul li > a:hover,
-.wy-menu-vertical li ul li ul li > a:hover {
-    background-color: #FFD75E !important;
-    color: #000 !important;
 }
