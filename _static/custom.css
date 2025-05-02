@@ -159,3 +159,19 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
     color: #000 !important;
 }
+
+/* Fix all nested dropdown containers (ul) to be Sundial Yellow */
+.wy-menu-vertical ul,
+.wy-menu-vertical ul ul,
+.wy-menu-vertical ul ul ul,
+.wy-menu-vertical ul ul ul ul {
+    background-color: #F5A707 !important;
+}
+
+/* Ensure ALL link text stays black across all levels */
+.wy-menu-vertical ul a,
+.wy-menu-vertical ul ul a,
+.wy-menu-vertical ul ul ul a,
+.wy-menu-vertical ul ul ul ul a {
+    color: #000 !important;
+}
