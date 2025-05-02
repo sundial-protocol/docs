@@ -1,5 +1,5 @@
 html_theme = "sphinx_rtd_theme"
-html_show_sourcelink = False
+# html_show_sourcelink = False
 
 html_context = {
     "display_github": False,  # Turn off default "Edit on GitHub"
