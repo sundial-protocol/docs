@@ -1,4 +1,4 @@
-project = "Sundial Protocol"
+project = ""
 html_title = "Sundial Protocol Documentation"
 html_short_title = "Sundial Docs"
 html_theme = "sphinx_rtd_theme"
