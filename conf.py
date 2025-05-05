@@ -9,8 +9,9 @@ html_context = {
 }
 
 html_theme_options = {
-    'logo_only': True,
-    'display_version': False,
+    "logo_only": False,
+    "display_version": False,
+    "collapse_navigation": False,
 }
 
 html_static_path = ['_static']
