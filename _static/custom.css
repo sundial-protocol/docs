@@ -203,3 +203,62 @@ a[title="View page source"] {
     color: #000 !important;
 }
 
+/* ===== MOBILE FIXES ===== */
+@media screen and (max-width: 768px) {
+    .wy-nav-side {
+      position: fixed;
+      width: 85%;
+      z-index: 200;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+    }
+  
+    .wy-nav-side.shift {
+      transform: translateX(0);
+    }
+  
+    .wy-side-nav-search {
+      padding: 1em;
+    }
+  
+    .wy-nav-content {
+      margin-left: 0 !important;
+      padding: 1rem !important;
+    }
+  
+    .wy-menu-vertical li a {
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+    }
+  
+    .wy-menu-vertical {
+      font-size: 1rem;
+    }
+  
+    .wy-grid-for-nav {
+      display: block;
+    }
+  
+    .wy-nav-top {
+      display: block;
+      background-color: #F5A707;
+      padding: 1rem;
+      font-weight: bold;
+      color: #000;
+    }
+  
+    .wy-nav-top i {
+      color: #000;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    body {
+      min-width: auto !important;
+    }
+  
+    .wy-nav-content {
+      max-width: 100% !important;
+    }
+  }

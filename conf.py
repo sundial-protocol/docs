@@ -1,3 +1,6 @@
+project = "Sundial Protocol"
+html_title = "Sundial Protocol Documentation"
+html_short_title = "Sundial Docs"
 html_theme = "sphinx_rtd_theme"
 # html_show_sourcelink = False
 
