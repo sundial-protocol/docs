@@ -1,6 +1,3 @@
-project = 'Sundial Protocol'
-html_title = 'Sundial Documentation'
-html_short_title = 'Sundial Docs'
 html_theme = "sphinx_rtd_theme"
 # html_show_sourcelink = False
 
@@ -9,9 +6,8 @@ html_context = {
 }
 
 html_theme_options = {
-    "logo_only": False,
-    "display_version": False,
-    "collapse_navigation": False,
+    'logo_only': True,
+    'display_version': False,
 }
 
 html_static_path = ['_static']
