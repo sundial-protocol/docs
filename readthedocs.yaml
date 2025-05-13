@@ -1,13 +1,18 @@
+# Read the Docs configuration file
+# Format version 2 is the current standard
 version: 2
 
+# Build environment settings
 build:
-  os: ubuntu-22.04
+  os: ubuntu-22.04         # Use Ubuntu 22.04 as the build OS
   tools:
-    python: "3.10"
+    python: "3.10"         # Specify Python version 3.10 for the virtual environment
 
+# Python dependency installation
 python:
   install:
-    - requirements: requirements.txt
+    - requirements: requirements.txt  # Install dependencies from this file
 
+# Sphinx-specific configuration
 sphinx:
-  configuration: conf.py
+  configuration: conf.py   # Path to the Sphinx configuration file

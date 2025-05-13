@@ -1,33 +1,40 @@
+# Name of the workflow as it appears in the GitHub Actions UI
 name: Daily Upstream Sync
 
+# Define when the workflow should run
 on:
   schedule:
-    - cron: '0 3 * * *'  # Runs daily at 03:00 UTC
-  workflow_dispatch:      # Allows manual run from the Actions tab
+    - cron: '0 3 * * *'       # Automatically runs daily at 03:00 UTC
+  workflow_dispatch:          # Allows the workflow to be triggered manually
 
 jobs:
-  sync-upstream:
-    runs-on: ubuntu-latest
+  sync-upstream:              # Name of the job
+    runs-on: ubuntu-latest    # Use latest available Ubuntu runner
 
     steps:
+    # Step 1: Checkout the current repository
     - name: Checkout your repo
       uses: actions/checkout@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # Enables push
-        fetch-depth: 0                      # Required for full git history
+        token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token to enable pushing commits
+        fetch-depth: 0                      # Fetch entire git history (needed for full diff/merge context)
 
+    # Step 2: Set git user identity so commits are not anonymous
     - name: Set up Git identity
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
+    # Step 3: Add the upstream remote repo (source of truth)
     - name: Add upstream remote
       run: git remote add upstream https://github.com/Anastasia-Labs/midgard.git
 
+    # Step 4: Run Python script to fetch, compare, merge, and push changes
     - name: Fetch and merge from upstream
       run: |
         python check_upstream.py
 
+    # Step 5: Commit the update log only if changes were made
     - name: Commit update log if changed
       run: |
         git add update_log.txt || true

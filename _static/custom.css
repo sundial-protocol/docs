@@ -1,15 +1,18 @@
 /* ===== Sidebar Background ===== */
+/* Sets the sidebar background to yellow and removes top padding/margin */
 .wy-nav-side {
     background: #F5A707 !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
+/* Hides the menu switcher component, if present */
 div.switch-menus {
     display: none !important;
 }
 
-/* Search Bar */
+/* ===== Search Bar ===== */
+/* Makes the search bar background transparent and styles the input field */
 .wy-side-nav-search {
     background: transparent !important;
     padding: 0.5em 1em !important;
@@ -17,10 +20,14 @@ div.switch-menus {
     box-shadow: none !important;
     border-bottom: none !important;
 }
+
+/* Hides the search bar’s icon and anchor link */
 .wy-side-nav-search > a,
 .wy-side-nav-search img {
     display: none !important;
 }
+
+/* Styles the input box within the search bar */
 .wy-side-nav-search input[type="text"] {
     background: #fff;
     color: #000;
@@ -28,7 +35,7 @@ div.switch-menus {
     margin-top: 0.2em;
 }
 
-/* Sidebar Links */
+/* ===== Sidebar Links ===== */
 .wy-menu-vertical a {
     color: #000 !important;
 }
@@ -37,7 +44,7 @@ div.switch-menus {
     font-weight: bold;
 }
 
-/* Active Item Highlighting (all levels) */
+/* ===== Active Item Highlighting (all levels) ===== */
 .wy-menu-vertical li.toctree-l1.current > a,
 .wy-menu-vertical li.toctree-l2.current > a,
 .wy-menu-vertical li.toctree-l3.current > a,
@@ -48,7 +55,8 @@ div.switch-menus {
     font-weight: bold !important;
 }
 
-/* Hover Styling for All Levels */
+/* ===== Hover Styling for All Levels ===== */
+/* Changes background and text colour on hover for all nested sidebar links */
 .wy-menu-vertical a:hover,
 .wy-menu-vertical li > a:hover,
 .wy-menu-vertical li ul li > a:hover,
@@ -58,7 +66,8 @@ div.switch-menus {
     color: #000 !important;
 }
 
-/* Dropdown Backgrounds (all nested levels) */
+/* ===== Dropdown Backgrounds (all nested levels) ===== */
+/* Ensures dropdowns and nested lists have yellow background and black text */
 .wy-menu-vertical ul,
 .wy-menu-vertical ul ul,
 .wy-menu-vertical ul ul ul,
@@ -72,7 +81,7 @@ div.switch-menus {
     color: #000 !important;
 }
 
-/* Fix grey dropdown on expanded submenus */
+/* Fixes grey background issue for open nested menus */
 .wy-menu-vertical li.current > ul,
 .wy-menu-vertical li.current > ul ul,
 .wy-menu-vertical li.current > ul ul ul {
@@ -80,6 +89,7 @@ div.switch-menus {
 }
 
 /* ===== Fix for L3 and L4 Items ===== */
+/* Ensures consistent yellow background and black text on L3/L4 items */
 .wy-menu-vertical li.toctree-l3,
 .wy-menu-vertical li.toctree-l4,
 .wy-menu-vertical li.toctree-l3 > a,
@@ -104,12 +114,15 @@ div.switch-menus {
 }
 
 /* ===== Content Area ===== */
+/* Styles the main content area with yellow background and black text */
 .wy-nav-content {
     background-color: #F5A707 !important;
     color: #000 !important;
     max-width: 100% !important;
     padding: 2rem !important;
 }
+
+/* Ensures entire page and container structure inherits the yellow theme */
 body,
 .wy-nav-content-wrap,
 .wy-grid-for-nav,
@@ -117,12 +130,17 @@ body,
     background-color: #F5A707 !important;
     color: #000 !important;
 }
+
+
+/* Makes document content transparent to avoid layering conflicts */
 .rst-content,
 .wy-nav-content .section,
 .wy-nav-content .body,
 .wy-nav-content .document {
     background: transparent !important;
 }
+
+/* Formats code blocks and inline code to match theme */
 .rst-content pre,
 .rst-content code {
     white-space: pre-wrap;
@@ -132,13 +150,15 @@ body,
     border: none;
 }
 
-/* Footer */
+/* ===== Footer Styling ===== */
+/* Makes footer links black */
 footer a,
 footer a:visited {
     color: #000 !important;
 }
 
 /* ===== Remove RTD Elements ===== */
+/* Hides version switcher, current version badge, and other ReadTheDocs extras */
 .rst-versions,
 .rst-current-version,
 div.rst-versions.rst-badge,
@@ -163,7 +183,8 @@ a[title="View page source"] {
     display: none !important;
 }
 
-/* Force background color on all active container <li> elements */
+/* ===== Force Background and Link Colours ===== */
+/* Highlights all active container items with yellow */
 .wy-menu-vertical li.toctree-l1.current,
 .wy-menu-vertical li.toctree-l2.current,
 .wy-menu-vertical li.toctree-l3.current,
@@ -175,7 +196,7 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
 }
 
-/* 🟡 Force yellow background on all levels */
+/* Force yellow background on all levels */
 .wy-menu-vertical li.toctree-l1,
 .wy-menu-vertical li.toctree-l2,
 .wy-menu-vertical li.toctree-l3,
@@ -183,27 +204,28 @@ a[title="View page source"] {
     background-color: #F5A707 !important;
 }
 
-/* 🟡 Also ensure any nested dropdown ULs are yellow */
+/* Also ensure any nested dropdown ULs are yellow */
 .wy-menu-vertical li > ul,
 .wy-menu-vertical li ul ul,
 .wy-menu-vertical li ul ul ul {
     background-color: #F5A707 !important;
 }
 
-/* ⚫ Ensure all links are black, even inside nested dropdowns */
+/* Ensure all links are black, even inside nested dropdowns */
 .wy-menu-vertical a,
 .wy-menu-vertical li a,
 .wy-menu-vertical ul li a {
     color: #000 !important;
 }
 
-/* 💡 Hover highlight (lighter yellow) */
+/* Hover highlight (lighter yellow) */
 .wy-menu-vertical a:hover {
     background-color: #FFD75E !important;
     color: #000 !important;
 }
 
 /* ===== MOBILE FIXES ===== */
+/* Mobile sidebar: collapses into hamburger, slides in, maintains yellow theme */
 @media screen and (max-width: 768px) {
     .wy-nav-side {
       position: fixed;
@@ -253,6 +275,7 @@ a[title="View page source"] {
     }
   }
 
+  /* Adjust layout for tablets and smaller desktops */
   @media screen and (max-width: 1024px) {
     body {
       min-width: auto !important;
