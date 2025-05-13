@@ -13,11 +13,11 @@ def convert_tex_to_rst(root_dir='technical-spec'):
                         ['pandoc', tex_path, '-f', 'latex', '-t', 'rst', '-o', rst_path],
                         check=True
                     )
-                    print(f"✅ Converted: {tex_path} → {rst_path}")
+                    print(f"Converted: {tex_path} → {rst_path}")
                 except subprocess.CalledProcessError:
-                    print(f"❌ Failed to convert: {tex_path}")
+                    print(f"Failed to convert: {tex_path}")
                 except FileNotFoundError:
-                    print("❌ Pandoc not found. Please install it with: sudo apt install pandoc")
+                    print("Pandoc not found. Please install it with: sudo apt install pandoc")
 
 if __name__ == '__main__':
     convert_tex_to_rst()
