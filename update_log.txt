@@ -85,3 +85,7 @@
 2025-05-26T04:02:12.685082 — Upstream changes:
  - No changes
 
+2025-05-27T04:03:08.009436 — Upstream changes:
+ - demo/midgard-node/flake.lock
+ - demo/midgard-node/flake.nix
+
