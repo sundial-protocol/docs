@@ -149,3 +149,11 @@
 2025-06-10T03:51:23.395755 — Upstream changes:
  - No changes
 
+2025-06-11T03:51:12.031902 — Upstream changes:
+ - demo/midgard-node/pnpm-lock.yaml
+ - demo/midgard-node/src/transactions/state-queue/init.ts
+ - demo/midgard-node/src/transactions/state-queue/merge-to-confirm-state.ts
+ - demo/midgard-node/src/transactions/state-queue/reset.ts
+ - demo/midgard-node/src/transactions/utils.ts
+ - demo/midgard-node/src/workers/commit-block-header.ts
+
