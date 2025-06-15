@@ -166,3 +166,39 @@
 2025-06-14T03:46:40.630240 — Upstream changes:
  - No changes
 
+2025-06-15T03:54:34.225271 — Upstream changes:
+ - onchain/aiken/env/default.ak
+ - onchain/aiken/lib/midgard/common/constants.ak
+ - onchain/aiken/lib/midgard/common/parameter-validation.ak
+ - onchain/aiken/lib/midgard/common/types.ak
+ - onchain/aiken/lib/midgard/common/utils.ak
+ - onchain/aiken/lib/midgard/common/utils.test.ak
+ - onchain/aiken/lib/midgard/escrow.ak
+ - onchain/aiken/lib/midgard/hub-oracle.ak
+ - onchain/aiken/lib/midgard/ledger-state.ak
+ - onchain/aiken/lib/midgard/settlement-queue.ak
+ - onchain/aiken/lib/midgard/user-events.ak
+ - onchain/aiken/lib/midgard/user-events/deposit.ak
+ - onchain/aiken/lib/midgard/user-events/tx-order.ak
+ - onchain/aiken/lib/midgard/user-events/withdraw.ak
+ - onchain/aiken/lib/midgard/user-events/withdrawal.ak
+ - onchain/aiken/lib/midgard/user-events/witness.ak
+ - onchain/aiken/plutus.json
+ - onchain/aiken/validators/settlement-queue.ak
+ - onchain/aiken/validators/user-events/deposit.ak
+ - onchain/aiken/validators/user-events/tx-order.ak
+ - onchain/aiken/validators/user-events/withdrawal.ak
+ - onchain/aiken/validators/user-events/witness.ak
+ - technical-spec/1-ledger-state/3-deposit-event.tex
+ - technical-spec/1-ledger-state/4-withdrawal-event.tex
+ - technical-spec/1-ledger-state/5-transaction-order-event.tex
+ - technical-spec/1-ledger-state/6-transaction.tex
+ - technical-spec/1-ledger-state/7-confirmed-state.tex
+ - technical-spec/2-user-event-protocol/1-deposit.tex
+ - technical-spec/2-user-event-protocol/3-transaction-order.tex
+ - technical-spec/2-user-event-protocol/4-withdrawal-order.tex
+ - technical-spec/2-user-event-protocol/5-witness-staking-script.tex
+ - technical-spec/3-consensus-protocol/6-settlement-queue.tex
+ - technical-spec/3-consensus-protocol/8-hub-oracle.tex
+ - technical-spec/midgard.tex
+
