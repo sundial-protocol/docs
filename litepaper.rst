@@ -97,8 +97,9 @@ be calibrated to achieve a better balance between security, transaction
 throughput, confirmation time, and community participation in committing
 blocks and detecting fraud.
 
-**Scalability and Efficiency
-**\ |image2|
+**Scalability and Efficiency**
+
+|image2|
 
 By processing transactions off-chain and only validating them on-chain
 when fraud proofs challenge them, Sundial significantly increases
@@ -286,9 +287,13 @@ for UTxO-based blockchains:
 -  ZK Bridges – A fully trustless rollup bridge secured by zero-knowledge proofs, ensuring seamless interoperability with metaprotocols.
 
 -  Native UTxO Security – Greatly diminish vulnerabilities common in other blockchain ecosystems. Such vulnerabilities include but are not limited to:
+
    -  wallet drainers
+
    -  smart contract exploits
+
    -  fees for failed transactions
+
    -  network outages
 
 -  Established Ecosystem Integrations – Day-1 ecosystem activity with leading DeFi, utility, RAW and gaming protocols coming from Cardano to drive adoption and usage.
