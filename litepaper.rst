@@ -1,7 +1,7 @@
 Sundial Litepaper
 ==================
 
-|image1|\ **Sundial Litepaper**
+|image1|\
 
 Working Draft - July 21st, 2025
 
@@ -21,17 +21,15 @@ significant advancement in the scalability and security of
 general-purpose Layer 2 solutions on Cardano. Below are detailed
 economic incentives that ensure the protocol’s integrity and efficiency.
 
-+-----------------------------------------------------------------------+
-| .. image:: ./litepaper_media/image2.png |
-|    :width: 6.26772in                                                  |
-|    :height: 3.31944in                                                 |
-|                                                                       |
-| *Sundial and Midgard are being developed in parallel, with Midgard to |
-| be the composible tech stack - similar to the Optimism tech stack on  |
-| Ethereum. The above graphic is a display on how Midgard’s operators   |
-| will operate. Sundial’s system will work in the same fashion.*        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. image:: ./litepaper_media/image2.png                               
+      :width: 6.26772in                                                     
+      :height: 3.31944in                                                    
+                                                                      
+*Sundial and Midgard are being developed in parallel, with Midgard to 
+be the composible tech stack - similar to the Optimism tech stack on  
+Ethereum. The above graphic is a display on how Midgard’s operators   
+will operate. Sundial’s system will work in the same fashion.*        
 
 Operators guarantee the validity of their committed blocks by posting
 bonds, which are slashable if the blocks are proven invalid. Members of
@@ -75,17 +73,13 @@ low transaction costs.
   that are similar to transactions processed directly onchain, as long
   as:
 
--  The bond requirement for the rollup’s operators is large enough to
-      discourage fraud.
+-  The bond requirement for the rollup’s operators is large enough to discourage fraud.
 
--  The reward for preventing an invalid block from merging is large
-      enough to encourage public vigilance in watching the operators.
+-  The reward for preventing an invalid block from merging is large enough to encourage public vigilance in watching the operators.
 
--  The waiting period for committed blocks is long enough to allow the
-      watchers to detect and prove fraud before those blocks are merged.
+-  The waiting period for committed blocks is long enough to allow the watchers to detect and prove fraud before those blocks are merged.
 
--  The data availability layer is accessible by anyone who wishes to
-      inspect the rollup blocks at any time that they wish to do so.
+-  The data availability layer is accessible by anyone who wishes to inspect the rollup blocks at any time that they wish to do so.
 
 Whenever the latter three security parameter values are calibrated to
 provide a high probability of invalid blocks being detected and
@@ -287,53 +281,34 @@ security.
 Sundial introduces groundbreaking features to unlock new capabilities
 for UTxO-based blockchains:
 
--  Babel Fees (Gas Abstraction) – Enables users to pay transaction fees
-      with any token, enhancing DeFi accessibility and usability.
+-  Babel Fees (Gas Abstraction) – Enables users to pay transaction fees with any token, enhancing DeFi accessibility and usability.
 
--  ZK Bridges – A fully trustless rollup bridge secured by
-      zero-knowledge proofs, ensuring seamless interoperability with
-      metaprotocols.
+-  ZK Bridges – A fully trustless rollup bridge secured by zero-knowledge proofs, ensuring seamless interoperability with metaprotocols.
 
--  Native UTxO Security – Greatly diminish vulnerabilities common in
-      other blockchain ecosystems. Such vulnerabilities include but are
-      not limited to:
-
+-  Native UTxO Security – Greatly diminish vulnerabilities common in other blockchain ecosystems. Such vulnerabilities include but are not limited to:
    -  wallet drainers
-
    -  smart contract exploits
-
    -  fees for failed transactions
-
    -  network outages
 
--  Established Ecosystem Integrations – Day-1 ecosystem activity with
-      leading DeFi, utility, RAW and gaming protocols coming from
-      Cardano to drive adoption and usage.
+-  Established Ecosystem Integrations – Day-1 ecosystem activity with leading DeFi, utility, RAW and gaming protocols coming from Cardano to drive adoption and usage.
 
 **Core Benefits**
 
 By integrating with Cardano Layer-1 and other UTxO chains, Sundial
 becomes a hybrid Layer-2 solution, delivering:
 
--  Trustless UTxO Interoperability – Seamlessly connects Bitcoin,
-      Cardano, and other UTxO-based assets.
+-  Trustless UTxO Interoperability – Seamlessly connects Bitcoin, Cardano, and other UTxO-based assets.
 
--  Trading – Enables low-cost, high-speed on-chain and cross-chain asset
-      exchanges.
+-  Trading – Enables low-cost, high-speed on-chain and cross-chain asset exchanges.
 
--  Lending & Borrowing – Allows BTC, ADA, LTC, and other assets to be
-      used as collateral in DeFi.
+-  Lending & Borrowing – Allows BTC, ADA, LTC, and other assets to be used as collateral in DeFi.
 
--  Staking & Yield Generation – Implements secure and sustainable
-      on-chain rewards mechanisms.
+-  Staking & Yield Generation – Implements secure and sustainable on-chain rewards mechanisms.
 
--  DeFi & Web3 Integration – Positions BTC as a foundational asset for
-      decentralized applications in finance, culture, and entertainment,
-      leveraging Cardano’s existing ecosystem.
+-  DeFi & Web3 Integration – Positions BTC as a foundational asset for decentralized applications in finance, culture, and entertainment, leveraging Cardano’s existing ecosystem.
 
--  Institutional-Grade Compliance – Implements advanced compliance,
-      reporting, and risk management tools to support institutional
-      participation.
+-  Institutional-Grade Compliance – Implements advanced compliance, reporting, and risk management tools to support institutional participation.
 
 Sundial redefines the potential of UTxO assets, bridging the gap between
 Bitcoin and smart contract-driven DeFi, unlocking liquidity, and
