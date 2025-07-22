@@ -1,3 +1,6 @@
+Sundial Litepaper
+==================
+
 |image1|\ **Sundial Litepaper**
 
 Working Draft - July 21st, 2025
